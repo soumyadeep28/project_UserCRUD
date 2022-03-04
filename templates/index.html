@@ -11,6 +11,21 @@
       <p class="card-text">Now Login to view all the image of each User and see the photo galary below</p>
       <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
     </div>
+
+    <div class="card" style="width: 18rem;">
+      <ul>
+       
+        {% for param in data %}
+        <li>
+          <img src="{{ param.photos.url }}" class="card-img-top" alt="">
+          <div class="card-body">
+            <p class="card-text">{{ param.description}}</p>
+          </div>
+        </li>
+          {% endfor %}
+      </ul>
+    </div>
+
     <div class="card-footer text-muted">
       Created By Soumyadeep
     </div>

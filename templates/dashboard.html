@@ -2,6 +2,7 @@
 
 {% block body %}
 <h1>Dashboard</h1>
+<p>Hi {{request.user}}</p>
 <div class="card text-center">
     <div class="card-header">
       Practical Task
@@ -12,6 +13,23 @@
 
       <a href="{% url 'logout' %}" class="btn btn-primary">logout</a>
     </div>
+
+    <div class="card" style="width: 18rem;">
+      <ul>
+       
+        {% for param in data %}
+        <li>
+          <img src="{{ param.photos.url }}" class="card-img-top" alt="">
+          <div class="card-body">
+            <p class="card-text">{{ param.description}}</p>
+          </div>
+        </li>
+          {% endfor %}
+      </ul>
+    </div>
+
+
+
     <div class="card-footer text-muted">
       Created By Soumyadeep
     </div>

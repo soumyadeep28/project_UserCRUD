@@ -4,13 +4,18 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth import logout
+
+
+from userdetails.models import UserDetails
 # Create your views here.
 
 def home(request):
+    allimages = UserDetails.objects.all()
     context = {
+        'data' : allimages ,
 
     }
-    return render( request , 'index.html'  )
+    return render( request , 'index.html' , context )
 
 
 
@@ -67,4 +72,10 @@ def logout_user(request):
 @login_required(login_url='login')
 def dashboard(request):
 
-    return render(request , 'dashboard.html')
+    allimages = UserDetails.objects.filter(user__username=request.user)
+    context = {
+        'data' : allimages ,
+
+    }
+
+    return render(request , 'dashboard.html' ,context)
