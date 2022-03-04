@@ -8,3 +8,16 @@ def home(request):
 
     }
     return render( request , 'index.html'  )
+
+
+
+
+def signinpage(request):
+
+    return render(request , 'signinpage.html')
+
+
+
+def register(request):
+
+    return render(request , 'register.html')
