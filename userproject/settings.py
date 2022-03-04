@@ -86,7 +86,7 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'innvonix',                      
+        'NAME': 'handson',                      
         'USER': 'postgres',
         'PASSWORD': 'password',
         'HOST': 'localhost',
